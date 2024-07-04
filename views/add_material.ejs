@@ -1,0 +1,66 @@
+<%- include('partials/head.ejs') %>
+
+
+<body>
+    <%- include('partials/Nav.ejs') %>
+    
+    <div id="add-site-page">
+
+        <main id="site-main">
+            <div class="container">
+                
+                <div class="form-tital text-center">
+                    <h2 class="text-dark">Add Material</h2>
+                    <span class="text-light">Use the below form to add Material</span>
+                </div>
+                <!-- form -->
+                <form action="/add_material" method="POST" id="add_material">
+                    <div class="new_site">
+                        <div class="form-group">
+                            <label for="Name">Name of material</label>
+                            <input type="hidden" name="user" value="<%=user%>">
+                            <input type="text" name="material_name" value="" placeholder="Enter Name of material" required>
+                        </div>
+                        <div class="new-labour">
+                            <div class="form-group">
+                                <label for="type">Shop Name</label>
+                                <input type="text" name="Company_name" value="" placeholder="Enter Company name" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn text-dark update">Save</button>
+                            </div>
+                        </div>
+                </form>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Sr.no</th>
+                            <th>Name</th>
+                            <th>Shop Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myLabours">
+                        <% for(var i=0; i<mymaterial.length;i++){ %>
+                            <tr>
+                                <td>
+                                    <%=i+1 %>
+                                </td>
+                                <td>
+                                    <%=mymaterial[i].material_name %>
+                                </td>
+                                <td>
+                                    <%=mymaterial[i].Company_name %>
+                                </td>
+                               
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="/js/add-vender.js"></script>
+    <script src="/js/home.js"> </script>
+</body>
+
+</html>

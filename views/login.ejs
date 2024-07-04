@@ -1,0 +1,49 @@
+<%- include('partials/head.ejs') %>
+
+
+    <body>
+        <div style="width: 50%; min-height: 90%; margin-top: 10% ; padding: 20px; border: 1px solid black; border-radius: 20px;"
+            class="container text-center">
+            <h3>SIGN IN</h3>
+
+
+            <form action="/login" method="POST">
+                <% if(typeof err!='undefined' ){ %>
+                    <div class="alert alert-dismissible alert-danger ">
+                        <strong>
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        </strong>
+                        <strong>
+                            <%= err %>
+                        </strong>
+                    </div>
+                    <% } %>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" name="Email" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name="Password" class="form-control" id="exampleInputPassword1"
+                                placeholder="Password">
+                        </div>
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-primary">sign in</button>
+                        </div>
+            </form>
+            <div>
+                if you don't have an account...? <a href="/resister">Click here..</a>
+            </div>
+        </div>
+        <!-- //jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <!-- //Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+
+    </html>

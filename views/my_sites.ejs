@@ -1,0 +1,72 @@
+<%- include('partials/head.ejs') %>
+
+
+<body>
+    <%- include('partials/Nav.ejs') %>
+    
+    <div class="home-page">
+        <main id="site-main">
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <a href="/add-site" class="border-shadow"><span class="text-gredient ">add new one</span></a>
+                <!-- {{!-- form --}} -->
+                <form action="#" class="site">
+                    <table class="site-table">
+                        <thead class="thead">
+                            <tr>
+                                <th>sr.no</th>
+                                <th>Name</th>
+                                <th>owner</th>
+                                <th>action</th>
+                                <th>delete</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myLabours" class="tbody">
+                            <% for(var i=0; i<sites.length;i++){ %>
+                                <tr>
+                                    <td>
+                                        <%=i+1 %>
+                                    </td>
+                                    <td>
+                                        <%=sites[i].site_name %>
+                                    </td>
+                                    <td>
+                                        <%=sites[i].site_owner %>
+                                    </td>
+                                    <td>
+                                        <a href="/site-open?id=<%= sites[i]._id %>" class="btn border-shadow open">
+                                            <span class="text-gradient">open</span>
+                                        </a>
+                                        
+                                    </td>
+                                    <td>
+                                        <button id="del" class="btn border-shadow "> delete</button>
+                                        <a href="/deleteSite?id=<%= sites[i]._id %>" id="delete" class="btn border-shadow dele">
+                                            <span class="text-gradient">confirm delete</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </main>
+    </div>
+<script>
+    var a= document.getElementById('del');
+    var b= document.getElementById('del');
+    a.addEventListener('click',()=>{        
+if (confirm('Do you want to delete..?')) {
+    alert("plz click to delete again..");
+    a.setAttribute("style",'display:none;')
+    b.setAttribute("style","display:block;");
+}
+    })
+</script>
+
+    <script src="/js/home.js"> </script>
+    
+</body>
+
+</html>

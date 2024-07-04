@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Management</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.1/cerulean/bootstrap.min.css"
+    integrity="sha512-lojUNdOGZXJLeNdWWK4EcsIw7nnpRdi/KQGxKDNNGToPERJzztZlyQ6E/wUvuoNbc1M0TuBiNVBTLxU29zep9g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
+    <link rel="stylesheet" href="css/navBar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/addLabour.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
+    <!-- <link rel="stylesheet" href="css/resitration.css"> -->
+
+
+
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+
+    <style>
+        button[type='submit']{
+            color: rgb(0, 0, 0) !important;
+            background-color: rgba(142, 230, 101, 0.306) !important;
+            font-size: small;
+            font-weight:900;
+        }
+        .section {
+            display: block;
+            min-height: 100vh;
+            position: relative;
+            text-align: center;
+            font-family: sans-serif, arial;
+            border-bottom: 20px#004643 solid ;
+
+        }
+
+        #section1 {
+            margin-top: 10%;
+            background: #5c53aa;
+            color: #b5b3ca;
+        }
+
+        #section2 {
+            background: #3a4040;
+            color: #8fd3d5;
+        }
+
+        #section3 {
+            background: #283044;
+            color: #686e7c;
+        }
+
+        #section4 {
+            min-height: 800px;
+            background: #e3f9ea;
+            color: #000000;
+        }
+
+        #section7 {
+            background: #e564141e;
+            color: #d39870; 
+        }
+        input[type="text"]{
+            width: 100%;
+            padding: 5px;
+            background-color: #ffffff;
+            color: #000000;
+            font-size: small;
+            font-weight:700;
+
+        }
+        input[type="number"]{
+            width: 100%;
+            padding: 5px;
+            background-color: #fdfdfd;
+            color: #000000;
+            font-size: small;
+            font-weight:700;
+
+        }
+        .container{
+            min-width: 80%;
+        }
+
+
+        .title-top {
+            font-size: 60px;
+            padding-bottom: 30px;
+        }
+
+        .title-bottom {
+            font-size: 30px;
+        }
+
+        .title-tx {
+            font-size: 20px;
+            opacity: 0.8;
+        }
+
+        h4 {
+            color: #004643;
+            margin-right: 10px;
+            border-right: #004643 2px solid;
+            padding: 5px;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+            margin-top: 3%;
+            position: fixed;
+            background-color: #fffffe;
+            width: 100%;
+            top: 20px;
+            z-index: 9;
+            padding-left: 10px;
+            border-bottom: 2px solid #eff0f3;
+
+        }
+
+        .nav a {
+            /* width: 10%; */
+            height: 30px;
+            padding: 7px 20px;
+            /* border-radius: 7px; */
+            margin-right: 10px;
+            margin: 5px;
+            /* background: #abd1c653; */
+            -webkit-transition: all 0.2s ease-out;
+            -moz-transition: all 0.2s ease-out;
+            -ms-transition: all 0.2s ease-out;
+            -o-transition: all 0.2s ease-out;
+            transition: all 0.2s ease-out;
+            text-decoration: none;
+            color: black;
+            font-family: sans-serif, arial;
+            padding: 5px;
+            font-weight: 700;
+            border-right: #455453 2px solid;
+
+        }
+
+        .nav a.active {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .nav a:hover {
+            background: rgba(22, 18, 18, 0.7);
+            color: #ebf5ee;
+        }
+
+        .fork-wr img {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            right: 0;
+            border: 0;
+        }
+.p-table{
+    border: 2px solid black;
+}
+.p-table tr td{
+    text-align: center;
+}
+
+        /* bha */
+        .site {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .site-table {
+            border: 1px solid rgb(9, 7, 7);
+        }
+
+        .site-table .thead tr th {
+            padding: 10px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            font-size: 1.2em;
+        }
+
+        .site-table .tbody tr td {
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.635);
+        }
+
+        .site-table .tbody tr {
+            border-bottom: 1px solid rgb(255, 0, 0);
+
+        }
+        .site-table .tbody a{
+            margin-left:15px;
+        }
+        .site-table .tbody .dele{
+            display: none;
+        }
+        .open{
+            background-color: cornsilk;
+            
+        }
+        .open:hover{
+            background-color: darkgray;
+        }
+
+    </style>
+
+</head>
+
+
+<!-- 
+<nav>
+    <div class="nav-bar">
+        <i class='bx bx-menu sidebarOpen'></i>
+        <span class="logo navLogo"><a href="#">Constructor</a></span>
+        <span class="logo navLogo"><a href="#"></a></span>
+
+
+        <div class="menu">
+            <div class="logo-toggle">
+                <span class="logo"><a href="#">Constructor</a></span>
+                <i class='bx bx-x siderbarClose'></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/labour">Labour</a>
+                    <div class="drop-down">
+                        <ul>
+                            <li><a href="/labour">add Labour</a></li>
+                            <br>
+                            <li><a href="/attendance">Attendance</a></li>
+                            <br>
+                            <li><a href="#">payment</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Sites</a>
+                    <div class="drop-down">
+                        <ul>
+                            <li><a href="/add-site">add site</a></li>
+                            <br>
+                            <li class="mysites"><a>My sites</a>
+                                <div class="drop-down-2">
+                                    <ul>
+                                        <li><a href="#">1</a></li>
+                                        <br>
+                                        <li><a href="#" >2</a></li>
+                                        <br>
+                                        <li><a href="#">3</a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <br>
+                            <li><a href="#">payment</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Vendor</a></li>
+                <li><a href="#">Payment's</a></li>
+                <li><a href="#">Dev. Contact</a></li>
+
+            </ul>
+        </div>
+
+        <div class="darkLight-searchBox">
+            <div class="dark-light">
+                <i class='bx bx-moon moon'></i>
+                <i class='bx bx-sun sun'></i>
+            </div>
+
+            <div class="searchBox">
+                <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                </div>
+
+                <div class="search-field">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search'></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav> -->

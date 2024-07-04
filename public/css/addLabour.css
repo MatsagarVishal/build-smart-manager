@@ -1,0 +1,201 @@
+
+
+/* apge body */
+#add-site-page {
+    height: 100%;
+    width: 100%;
+    background: var(--body-color);
+    position: absolute;
+    top: 3%;
+    margin-top: 2%;
+}
+
+
+
+
+/* main body */
+a{
+    text-decoration: non;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.container{
+    max-width: 1024px;
+    margin: auto;
+
+}
+.nav-brand{
+    font-size: 1.5em;
+    font-weight: bold;
+
+}
+
+.d-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.justify-between{
+    justify-content: left;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.border-shadow{
+    border: 1px solid var(--border-btn);
+    box-shadow: 1px 3px 10px var(--dark);
+}
+.inline{
+    display: inline;
+}
+.text-light{
+    color: var(--light);
+
+}
+.text-dark{
+    color: var(--form-head);
+
+}
+.text-gradient{
+    background: linear-gradient(to right, rgb(14, 13, 13),rgb(89, 76, 76));
+    -webkit-background-clip: text;
+    background-clip:text ;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+#site-main{
+    margin-top: 6em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#site-main .container .box-nav > a{
+    font-size: 1em;
+    padding: .5em 1em;
+}
+#site-main .container form{
+    margin: 2em 0;
+}
+
+table{
+    border-spacing: 0px;
+    width: 100%;
+}
+.table td, .table th{
+    padding: .75em;
+    vertical-align: top;
+    text-align: center;
+    border-top:1px solid var(--border) ;
+
+}
+
+.table td >a.btn{
+    padding: 0.3em 1em;
+    font-size: 1.1em;
+    margin: 0.2em;
+
+}
+.table tr:hover{
+    background-color: rgba(217, 215, 213, 0.589);
+    color: white !important;
+    
+}
+
+.table tr:hover td>a{
+    box-shadow: none;
+}
+
+.table .thead-dark th{
+    color: var(--border-btn);
+    background-color: var(--btn-color2);
+    border-color: #2c2727;
+}
+/* 
+@media only screen and (max-width:1024px){
+
+    table, thead, tbody , th , td, tr{
+        display: block;
+
+    }
+
+    thead tr{
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+
+    }
+    tr{
+        border: 1px solid var(--border);
+
+
+    }
+    td{
+        border: none;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+    }
+} */
+
+
+/* add user & update form */
+
+.form-title{
+    margin-top: 2em;
+
+}
+
+
+.form-title>h2{
+    max-width: 786px;
+    margin: auto;
+}
+#update_user .form-group,
+#add_site .form-group{
+    margin: .6em 1em;
+}
+#update_user .form-group input[type="text"],input[type="number"],select{
+    width: 100%;
+    padding: .6em 1em;
+    margin: .6em 0;
+    border: 1px solid var(--light);
+} 
+#update_user .form-group .btn,
+#add_site .form-group .btn{
+    width: 100%;
+    padding: .9em 1em;
+    background-color: var(--btn-color);
+    border: 1px solid var(--btn-color2);
+}
+#update_user .form-group .btn:hover,
+#add_site .form-group .btn:hover{
+    width: 99.9%;
+    padding: .8em 1em;
+    background-color: var(--btn-color2);
+    border: 1px solid var(--btn-color);
+}
+
+
+/* add site */
+
+#add_site .form-group input[type="text"],input[type="number"],select,button[type='submit']{
+    width: 100%;
+    padding: .6em 1em ;
+    margin: .6em 0;
+    border: 1px solid var(--btn-color2);
+}
+button[type='submit']{
+    color: var(--border-btn);
+}
+
+#add_site .form-group label
+{
+    color: var(--form-head);
+}
+#add_site .form-group .btn
+{
+    font-weight: 700;
+    font-size: 1em;
+    color: var(--dark);
+}

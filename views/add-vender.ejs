@@ -1,0 +1,82 @@
+<%- include('partials/head.ejs') %>
+
+
+<body>
+    <%- include('partials/Nav.ejs') %>
+    
+    <div id="add-site-page">
+
+        <main id="site-main">
+            <div class="container">
+                
+                <div class="form-tital text-center">
+                    <h2 class="text-dark">Add Vender</h2>
+                    <span class="text-light">Use the below form to add Vender</span>
+                </div>
+                <!-- form -->
+                <form action="/add_vender" method="POST" id="add_vender">
+                    <div class="new_site">
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input type="hidden" name="id">
+                            <input type="text" name="vender_name" value="" placeholder="Enter Name of vender" required>
+                        </div>
+                        <div class="new-labour">
+                            <div class="form-group">
+                                <label for="type">Shop Name</label>
+                                <input type="text" name="shop_name" value="" placeholder="Enter shop name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">contact</label>
+                                <input type="number" name="mobileNumber" value="" maxlength="10" placeholder="Enter mobile number" required>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn text-dark update">Save</button>
+                            </div>
+                        </div>
+                </form>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Sr.no</th>
+                            <th>Name</th>
+                            <th>Shop Name</th>
+                            <th>contact Number</th>
+                            <th>action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myLabours">
+                        <% for(var i=0; i<myVender.length;i++){ %>
+                            <tr>
+                                <td>
+                                    <%=i+1 %>
+                                </td>
+                                <td>
+                                    <%=myVender[i].vender_name %>
+                                </td>
+                                <td>
+                                    <%=myVender[i].shop_name %>
+                                </td>
+                                <td>
+                                    <%=myVender[i].mobileNumber %>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn border-shadow update">
+                                        <span class="text-gradient">edit</span>
+                                    </a>
+                                    <a class="btn border-shadow delete">
+                                        <span class="text-gradient">delete</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <script src="/js/add-vender.js"></script>
+    <script src="/js/home.js"> </script>
+</body>
+
+</html>

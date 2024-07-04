@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+   
+}
+#login-page{
+    background-image: url(image2.jpg);
+    background-size: cover;
+    background-position: center;
+    font-size: 16px;
+    font-family: teko;
+    color: black;
+}
+#login-page .container{
+    max-width: 450px;
+    padding: 10px 10px;
+    background: rgba(127, 154, 156, 0.301);
+    margin: 10% auto;
+    box-shadow: -1px -1px 6px rgb(36, 4, 4) inset ,
+    0px 0px 6px rgb(0, 0, 0);
+    border-radius: 10px;
+}
+#login-page .container h3{
+    text-align:center;
+    font-size: 2em;
+}
+#login-page .container .box{
+    position: relative;
+    margin-bottom: 30px;
+}
+#login-page .container .box input{
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    outline: none;
+    border: 2px rgba(0, 0, 0, 0.384) solid;
+}
+#login-page .container .box input:focus+label,
+#login-page .container .box input:valid+label{
+    font-size: 0.9em;
+    font-weight:500;
+}
+#login-page .container label{
+    padding: 5px;
+    font-size: 0.9em;
+    border-radius: 10%;
+    transition: all .7s ease-in-out;
+}
+#login-page .container input[type=submit]{
+    position: absolute;
+    left:50%;
+    top: 60%;
+    transform:translate(-50%,-50%);
+    background: transparent;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 1s ease-in;
+}
+#login-page .container input[type=submit]:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.438);
+    color: white;
+}

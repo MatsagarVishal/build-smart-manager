@@ -1,0 +1,57 @@
+<%- include('partials/head.ejs') %>
+
+    <body>
+        <%- include('partials/Nav.ejs') %>
+
+            <div class="home-page">
+
+                <main id="site-main">
+                    <div class="container">
+                        <div class="box-nav d-flex justify-between">
+                            <div class="filter">
+                                <a href="/labour">all Labour's</a>
+                            </div>
+                        </div>
+                        <div class="form-tital text-center">
+                            <h2 class="text-dark">New Labour</h2>
+                            <span class="text-light">Use the below form to add new Labour</span>
+                        </div>
+                        <!-- form -->
+                        <form action="/resisterlabour" method="POST" id="update_user">
+                            <div class="new-labour">
+                                <div class="form-group">
+                                    <label for="Name">Name</label>
+                                    <input type="hidden" name="unique" value="<%= data ? data : 0 %> ">
+                                    <input type="hidden" name="user" value="<%= user.Email %> "> 
+                                    <input type="text" name="name" value="" placeholder="Enter Name here">
+                                </div>
+                                <div class="new-labour">
+                                    <div class="form-group">
+                                        <label for="type">type</label>
+                                        <input type="text" name="type" value="" placeholder="Enter type here">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type">Site</label>
+                                        <select name="Site" id="Site">
+                                            <% for(var i=0;i< site.length;i++) {%>  
+                                            <option value="<%= site[i].site_name  %>"><%= site[i].site_name  %></option>
+                                            <% } %> 
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rate">Rate RS</label>
+                                        <input type="number" name="rate" value="" placeholder="Enter rate here">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn text-dark update">Save</button>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+            <script src="/js/labour.js"></script>
+            <script src="/js/home.js"> </script>
+    </body>
+
+    </html>

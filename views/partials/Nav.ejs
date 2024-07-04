@@ -1,0 +1,97 @@
+<nav>
+    <div class="nav-bar">
+        <i class='bx bx-menu sidebarOpen'></i>
+        <span class="logo navLogo"><a href="#">Constrution Management</a></span>
+        <span class="logo navLogo"><a href="#"></a></span>
+
+
+        <div class="menu">
+            <div class="logo-toggle"> 
+                <span class="logo"><a href="#"></a></span>
+                <i class='bx bx-x siderbarClose'></i>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a class="click">Labour</a>
+                    <div class="drop-down1">
+                        <ul>
+                            <li><a href="/add-labour">Add Labour</a></li>
+                            <br>
+                            <li><a href="/labour" >Labour's</a></li>
+                            <br>
+                           
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#" class="click2">Sites</a>
+                    <div class="drop-down2">
+                        <ul>
+                            <li><a href="/add-site">add site</a></li>
+                            <br>
+                            <li><a href="/my_sites">My sites</a></li>
+                            <br>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#" class="click3">Vendor</a>
+                    <div class="drop-down3">
+                        <ul>
+                            <li><a href="/add-vender">add vender</a></li>
+                            <br>
+                            <li><a href="/add_material">add material</a></li>
+                            <br>
+                           
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Dev.Contact</a></li>
+
+            </ul>
+        </div>
+
+        <div class="darkLight-searchBox">
+            <div class="dark-light">
+                <i class='bx bx-moon moon'></i>
+                <i class='bx bx-sun sun'></i>
+            </div>
+
+            <div class="searchBox">
+                <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                </div>
+
+                <div class="search-field">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search'></i>
+                </div>
+            </div>
+            <% if(!user){ %> 
+            <div class="menu">
+                <div class="logg" style="margin: 10px;">
+                    <ul>
+                        <li>
+                            <a href="login"><button class="btn " style="color: black;"> Sign-in <i class='bx bx-log-in'></i></button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <% } else{%> 
+                <div class="menu">
+                    <div class="nav-links">
+                        <ul>
+                            <li>
+                                <a href="logout"><button class="btn" style="color: black;"> sign-out <i class='bx bx-log-out'></i></button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <% } %> 
+        </div>
+    </div>
+</nav>

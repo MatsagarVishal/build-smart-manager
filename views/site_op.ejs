@@ -1,0 +1,386 @@
+<%- include('partials/head.ejs') %>
+
+
+    <body>
+        <%- include('partials/Nav.ejs') %>
+
+            <div class="nav">
+                <h4>
+                    <%= name %>
+                </h4>
+                <a href="#section1">Attendance</a>
+                <a href="#section2">attendance report</a>
+                <!-- <a href="#section3">Link to section 3</a> -->
+                <a href="#section4">purchase Material</a>
+                <a href="#section5">Get Material On Rent</a>
+                <a href="#section6">Site payment</a>
+                <a href="#section7">Site payment report</a>
+            </div>
+            <section id="section1" class="section">
+                <div class="container">
+
+                    <h1 class="title">attendance</h1>
+
+                    <h4>
+                        <%= moment().format('DD-MM-YYYY'); %>
+                    </h4>
+                    <form action="/attendance" method="post">
+
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>id</th>
+                                    <th>Name</th>
+                                    <th>type</th>
+                                    <th>rate</th>
+                                    <th>Attendance</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myLabours">
+                                <input type="hidden" name="date" value="<%= moment().format('YYYY-MM-DD'); %>">
+                                <input type="hidden" name="day" value="<%= moment().format('DD'); %>">
+                                <input type="hidden" name="site" value="<%=name%> ">
+                                <input type="hidden" name="id" value="<%= url %>">
+                                <% for(var i=0; i<getLabours.length;i++){%>
+
+                                    <tr>
+                                        <input type="hidden" name="labourId" value="<%= getLabours[i].unique %>">
+
+                                        <td>
+                                            <%=i+1 %>
+                                        </td>
+                                        <td>
+                                            <%=getLabours[i].name %>
+                                        </td>
+                                        <td>
+                                            <%=getLabours[i].type %>
+                                        </td>
+                                        <td>
+                                            <%=getLabours[i].rate %>
+                                        </td>
+                                        <td>
+                                            <input type="checkbox" name="attendance" id="att"
+                                                value="<%= this.value==''?'':getLabours[i].unique%>">
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn">save</button>
+                    </form>
+                    <!-- section1 -->
+                </div>
+            </section>
+
+            <section id="section2" class="section">
+                <div class="container">
+                    <h1 class="title">Attendance Report</h1>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>id</th>
+                                <th>Name</th>
+                                <% for(let i=0; i<=30;i++){ %>
+                                    <th>
+                                        <%= i+1 %>
+                                    </th>
+                                    <% } %>
+                            </tr>
+                        </thead>
+                        <tbody id="myLabours">
+                            <input type="hidden" name="day" value="<%= moment().format('YYYY-MM-DD'); %>">
+                            <input type="hidden" name="site" value="<%=name%> ">
+                            <% for(var i=0; i<getLabours.length;i++){%>
+
+                                <tr>
+                                    <td>
+                                        <%=i+1 %>
+                                    </td>
+                                    <td>
+                                        <%= getLabours[i].name %>
+                                    </td>
+                                    <% for(let at in attendance ){ %>
+                                        <td>
+                                            <%= attendance[at] %>
+                                        </td>
+                                        aa
+                                        <% } %> 
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <!-- section2 -->
+                </div>
+            </section>
+
+
+            </section>
+            <section id="section4" class="section">
+                <div class="container">
+                    <h1 class="title">Purchase Material</h1>
+                    <span class="text-light">Use the below form to Purchase Material </span>
+                    <form action="/add_material_site" method="POST" id="add_material">
+                        <div class="new_site">
+                            <div class="form-group">
+                                <label for="Name">Name of material</label>
+                                <!-- <input type="hidden" name="id" value=" "> -->
+                                <input type="text" name="material_name" value="" placeholder="Enter Name of material"
+                                    required>
+                            </div>
+                            <div class="new-labour">
+                                <div class="form-group">
+                                    <input type="hidden" name="site" value="<%=name%> ">
+                                    <input type="hidden" name="id" value="<%= url %>">
+
+                                    <label for="type">Shop Name</label>
+                                    <input type="text" name="Company_name" value="" placeholder="Enter Company name"
+                                        required>
+                                </div>
+                                <div class="new-labour">
+                                    <div class="form-group">
+                                        <label for="type">Price</label>
+                                        <input type="number" name="Price" value="" placeholder="Enter Price " required
+                                            id="Price">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type">Units</label>
+                                        <input type="number" name="Units" value="" id="unit" placeholder="Enter Units"
+                                            required>
+                                    </div>
+                                    <div class="new-labour">
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn text-dark update">Save</button>
+                                        </div>
+                                    </div>
+                    </form>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Sr.no</th>
+                                <th>Name</th>
+                                <th>Shop Name</th>
+                                <th>units</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myLabours">
+                            <% for(var i=0; i<mymaterial.length;i++){ %>
+                                <tr>
+                                    <td>
+                                        <%=i+1 %>
+                                    </td>
+                                    <td>
+                                        <%=mymaterial[i].material_name %>
+                                    </td>
+                                    <td>
+                                        <%=mymaterial[i].Company_name %>
+                                    </td>
+                                    <td>
+                                        <%=mymaterial[i].Units %>
+                                    </td>
+                                    <td>
+                                        <%=mymaterial[i].Price %>
+                                    </td>
+                                    <td>
+                                        <%=mymaterial[i].Total %>
+                                    </td>
+                                    <td>
+                                        <a class="btn border-shadow delete">
+                                            <span class="text-gradient">delete</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <!-- section 4 -->
+                </div>
+            </section>
+            <section id="section5" class="section">
+                <div class="container">
+                    <div class="form-tital text-center">
+                        <h2>Rent Material</h2>
+                        <span class="text-light">Use the below form to Rent Material</span>
+                    </div>
+                    <!-- form -->
+                    <form action="/rent_material" method="POST" id="rent_material">
+                        <div class="new_site">
+                            <div class="form-group">
+                                <label for="Name">Choose Material</label>
+                                <input type="hidden" name="id" value="<%=name%> ">
+                                <input type="hidden" name="url" value="<%= url %>">
+
+                                <select name="material_name">
+                                    <% for(let i=0;i< mymaterial.length;i++) {%>
+
+                                        <option value="<%= mymaterial[i].material_name %>">
+                                            <%= mymaterial[i].material_name %>
+                                        </option>
+                                        <% } %>
+                                </select>
+                            </div>
+                            <div class="new-labour">
+                                <div class="form-group">
+                                    <label for="type">Choose vender </label>
+                                    <select name="vender_name">
+                                        <% for(let i=0;i< Vend.length;i++) {%>
+                                            <option value="<%= Vend[i].vender_name%>">
+                                                <%= Vend[i].vender_name %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type">Units</label>
+                                    <input type="number" name="Units" value="" placeholder="Enter Units" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type">Material Reant</label>
+                                    <input type="number" name="Rent" value="" placeholder="Enter rent" required>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn text-dark update">Save</button>
+                                </div>
+                            </div>
+                    </form>
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Sr.no</th>
+                                <th>Name</th>
+                                <th>Vender Name</th>
+                                <th>units</th>
+                                <th>Rent</th>
+                                <th>Paurchase date</th>
+                                <th>Today</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myLabours">
+                            <% for(var i=0; i<rentVen.length;i++){ %>
+                                <tr>
+                                    <td>
+                                        <%=i+1 %>
+                                    </td>
+                                    <td>
+                                        <%=rentVen[i].material_name %>
+                                    </td>
+                                    <td>
+                                        <%=rentVen[i].vender_name %>
+                                    </td>
+                                    <td>
+                                        <%=rentVen[i].Units %>
+                                    </td>
+                                    <td>
+                                        <%=rentVen[i].rent %>
+                                    </td>
+                                    <td>
+                                        <%=rentVen[i].date %>
+                                    </td>
+                                    <td>
+                                        <%=moment().format('DD-MM-YYYY') %>
+                                    </td>
+
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <!-- section5 -->
+                </div>
+            </section>
+            <section id="section6" class="section">
+                <div class="container">
+                    <h1 class="title">Site Payment</h1>
+                    <form action="/Site_payment" method="POST" id="add_site">
+                        <div class="new_site">
+                            <div class="form-group">
+                                <label for="Name">Name</label>
+                                <input type="hidden" name="id" value="<%= url %>">
+                                <input type="text" name="site_name" value="<%= name %>" readonly>
+                            </div>
+                            <div class="new-labour">
+                                <div class="form-group">
+                                    <label for="type">owner</label>
+                                    <input type="text" name="site_owner" value="<%= site.site_owner %>" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type">Payment Amount</label>
+                                    <input type="number" name="amount" placeholder="Enter the Amount">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Ptype">Payment Type</label>
+                                    <select name="paymentType" id="Ptype">
+                                        <option value="Advance">Advance</option>
+                                        <option value="Regular">Regular</option>
+                                    </select>
+                                    <input type="hidden" name="date" value="<%= moment().format('YYYY-MM-DD');%>">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn text-dark update">Save</button>
+                                </div>
+                            </div>
+                    </form>
+                    <!-- section 6 -->
+                </div>
+            </section>
+            <section id="section7" class="section">
+                <div>
+                    <div class="container">
+                        <h1 class="title">Site Payment report</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Payment Type</th>
+                                    <th>amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% var total=0; %>
+                                    <% for(var i=0;i< sitePay.length;i++){ %>
+                                        <tr>
+                                            <td>
+                                                <%= sitePay[i].date %>
+                                            </td>
+                                            <td>
+                                                <%= sitePay[i].PayType %>
+                                            </td>
+                                            <td>
+                                                <%= sitePay[i].amount %>
+                                            </td>
+                                            <% total=total+sitePay[i].amount %>
+
+                                        </tr>
+                                        <% } %>
+                                            <tr>
+                                                <th> </th>
+                                                <th>Total</th>
+                                                <th>
+                                                    <%= total %>
+                                                </th>
+                                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- section 7 -->
+                    </div>
+                </div>
+            </section>
+
+            <script src="/js/home.js"> </script>
+            <!-- //jQuery library -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+            <!-- //Latest compiled JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script>
+
+                window.slide = new SlideNav();
+
+
+            </script>
+    </body>
+
+    </html>

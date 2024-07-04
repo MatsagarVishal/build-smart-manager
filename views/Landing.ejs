@@ -1,0 +1,36 @@
+<%- include('partials/head.ejs') %>
+
+    <body>
+        <%- include('partials/Nav.ejs') %>
+
+            <div class="home-page">
+                <video src="css/bg.mp4" autoplay muted loop id="bgvideo"></video>
+
+                <div id="overlay">
+                    <div class="welcome-text">
+                        <div class="welcome">
+                            <h2>welcome</h2>
+                            <h3>Welcome to our group ! We hope long and successfull journey with you</h3>
+                        </div>
+                    </div>
+
+                    <div class="bottom">
+
+                        <div class="login losign">
+                            <p class="some">if you have an Account</p>
+                            <button class="some"><a href="login">Sign-in <i class='bx bx-log-in'></i></a></button>
+                        </div>
+                        <div class="sign-up losign">
+                            <p class="some">if you are new then create Account</p>
+                            <button class="some"><a href="resister">sign-up <i class='bx bx-log-out'></i></a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="/js/home.js"></script>
+
+    </body>
+
+</html>

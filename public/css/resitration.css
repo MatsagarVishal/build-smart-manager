@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: teko;
+}
+#res-page{
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.356),rgba(0, 0, 0, 0.329),rgba(0, 0, 0, 0.397)),url(regback1.jpg) ;
+    height: 100vh;
+    background-size:  cover;
+    background-position: center;
+}
+#res-page .container{
+    display: flex;
+    color: rgb(255, 255, 255);
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    margin:8% auto;
+    border: 2px black solid;
+    border-radius: 2%;
+    box-shadow: 2px 4px 10px rgb(0, 0, 0);
+    padding: 2%; 
+    transition: 1s linear;
+}
+#res-page h3{
+    text-align: center;
+    font-size: 2.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    text-shadow: 2px 2px 10px rgb(0, 0, 0);
+}
+#res-page .container input{
+    width: 100%;
+    padding: 0.8%;
+    margin: 0.5%;
+    background: transparent;
+    outline: none;
+    border: 1px #000 solid;
+}
+#res-page .container label{
+    font-weight: bold;
+}
+#res-page .container textarea{
+    background: transparent;
+    color: rgb(10, 0, 0);
+    outline: none;
+    border: 1px #000 solid;
+    width: 100%;
+}
+#res-page .container input:focus{
+    background:rgba(255, 255, 255, 0.418);
+    padding: 1.2%;
+    transition: 0.7s;
+}
+#res-page .container textarea:focus{
+    background:rgba(255, 255, 255, 0.418);
+    padding: 1.2%;
+    transition: 0.7s;
+}
+#res-page .container2 input{
+    margin: 0.5%;
+    background: rgba(255, 255, 255, 0.39);
+    width: auto;
+    border: 1px black solid;
+    padding: 0.5%  1% 0.5% 1% ;
+    
+   margin-left: 50%;
+   align-content: center;
+   font-weight: bold;
+   transition: 1s linear; 
+}
+#res-page .container2 input:hover{
+    border: 1px rgb(255, 255, 255) solid;
+    background-color: rgba(0, 0, 0, 0.356);
+    color: rgb(255, 255, 255);
+    cursor: pointer ;
+    transition: 0.7s linear;
+}

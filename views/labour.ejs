@@ -1,0 +1,62 @@
+<%- include('partials/head.ejs') %>
+
+
+<body>
+    <%- include('partials/Nav.ejs') %>
+    
+    <div class="home-page">
+        <main id="site-main">
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <a href="/add-labour" class="border-shadow"><span class="text-gredient ">add new one</span></a>
+                </div>
+                <!-- {{!-- form --}} -->
+                <form action="#" method="post">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>id</th>
+                                <th>Name</th>
+                                <th>type</th>
+                                <th>rate</th>
+                                <th>action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myLabours">
+                            <% for(var i=0; i<getLabours.length;i++){ %>
+                                <tr>
+                                    <td>
+                                        <%=i+1 %>
+                                    </td>
+                                    <td>
+                                        <%=getLabours[i].name %>
+                                    </td>
+                                    <td>
+                                        <%=getLabours[i].type %>
+                                    </td>
+                                    <td>
+                                        <%=getLabours[i].rate %>
+                                    </td>
+                                    <td>
+                                        <a href="/update?id=<%= getLabours[i]._id %>" class="btn border-shadow update">
+                                            <span class="text-gradient">edit</span>
+                                        </a>
+                                        <a class="btn border-shadow delete" href="/deleteLabour?id=<%= getLabours[i]._id %>">
+                                            <span class="text-gradient">delete</span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <% } %>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="/js/home.js"> </script>
+    
+</body>
+
+</html>
